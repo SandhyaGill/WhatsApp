@@ -1,22 +1,26 @@
 package com.sandhyagill.whatsapp
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerChatAdapter : RecyclerView.Adapter<RecyclerChatAdapter.ViewHolder>() {
-    inner class ViewHolder(var view: View): RecyclerView.ViewHolder(view){
-
+class RecyclerChatAdapter(var chatList: List<Chat>) : RecyclerView.Adapter<RecyclerChatAdapter.ViewHolder>() {
+     class ViewHolder(var view: View): RecyclerView.ViewHolder(view){
+         var personName = view.findViewById<TextView>(R.id.personName)
+         var chatMsg = view.findViewById<TextView>(R.id.chatMsg)
+     }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+      var view = LayoutInflater.from(parent.context).inflate(R.layout.recycler_chat,parent, false)
+        return ViewHolder(view)
     }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.personName.text = chatList[position].personName
+        holder.chatMsg.text = chatList[position].chatMsg
     }
 
     override fun getItemCount(): Int {
-
-    }
-
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-
+        return chatList.size
     }
 }

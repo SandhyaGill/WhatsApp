@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.sandhyagill.whatsapp.databinding.FragmentCallBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,9 +22,12 @@ class CallFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    lateinit var binding: FragmentCallBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
@@ -34,7 +39,25 @@ class CallFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_call, container, false)
+        binding = FragmentCallBinding.inflate(layoutInflater)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val callList : MutableList<Call> = mutableListOf()
+        callList.add(Call("Sandhya","10:04 AM"))
+        callList.add(Call("Tanu","1:00 PM"))
+        callList.add(Call("Harman","2:32 AM"))
+        callList.add(Call("Lovi","4:00 PM"))
+        callList.add(Call("Komal","3:28 AM"))
+        callList.add(Call("Kajal","8:09 PM"))
+        callList.add(Call("Drishti","11:23 AM"))
+        callList.add(Call("Sorav","2:00 PM"))
+        callList.add(Call("Sumit","4:00 AM"))
+        binding.recyclerView.adapter = RecyclerCallAdapter(callList)
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
     }
 
     companion object {
