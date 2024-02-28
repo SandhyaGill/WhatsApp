@@ -10,6 +10,7 @@ class RecyclerChatAdapter(var chatList: List<Chat>) : RecyclerView.Adapter<Recyc
      class ViewHolder(var view: View): RecyclerView.ViewHolder(view){
          var personName = view.findViewById<TextView>(R.id.personName)
          var chatMsg = view.findViewById<TextView>(R.id.chatMsg)
+         var time = view.findViewById<TextView>(R.id.time)
      }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
       var view = LayoutInflater.from(parent.context).inflate(R.layout.recycler_chat,parent, false)
@@ -18,6 +19,7 @@ class RecyclerChatAdapter(var chatList: List<Chat>) : RecyclerView.Adapter<Recyc
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.personName.text = chatList[position].personName
         holder.chatMsg.text = chatList[position].chatMsg
+        holder.time.text = chatList[position].time
     }
 
     override fun getItemCount(): Int {

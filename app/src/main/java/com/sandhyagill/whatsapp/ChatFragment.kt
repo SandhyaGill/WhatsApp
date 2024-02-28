@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.sandhyagill.whatsapp.databinding.FragmentCallBinding
 import com.sandhyagill.whatsapp.databinding.FragmentChatBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -23,7 +24,7 @@ class ChatFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    lateinit var binding : FragmentChatBinding
+    lateinit var binding : FragmentCallBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,20 +40,21 @@ class ChatFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentChatBinding.inflate(layoutInflater)
+        binding = FragmentCallBinding.inflate(layoutInflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val chatList : MutableList<Chat> = mutableListOf()
-        chatList.add(Chat("Sandhya","Hello"))
-        chatList.add(Chat("Tanu","Ajj Clg Jana"))
-        chatList.add(Chat("Harman","kida"))
-        chatList.add(Chat("Lovi","Assignment krli"))
-        chatList.add(Chat("Komal","Hi"))
+        chatList.add(Chat("Sandhya","Hello","2:00 AM"))
+        chatList.add(Chat("Tanu","Ajj Clg Jana","3:55 PM"))
+        chatList.add(Chat("Harman","kida","8:09 PM"))
+        chatList.add(Chat("Lovi","Assignment krli","4:56 AM"))
+        chatList.add(Chat("Komal","Hi","7:23 AM"))
         binding.recyclerView.adapter = RecyclerChatAdapter(chatList)
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
 
     }
 

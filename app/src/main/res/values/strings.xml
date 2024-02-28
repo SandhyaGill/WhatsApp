@@ -14,4 +14,7 @@
     <string name="person_name">Person name</string>
     <string name="time">Time</string>
     <string name="chat">Chat</string>
+    <string name="status">Status</string>
+    <string name="status_privacy">Status privacy</string>
+    <string name="recent">Recent</string>
 </resources>

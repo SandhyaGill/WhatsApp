@@ -1,3 +1,3 @@
 package com.sandhyagill.whatsapp
 
-data class Status(var personName : String, var time : String)
+data class Status(var personName : String)

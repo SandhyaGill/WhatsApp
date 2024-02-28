@@ -25,7 +25,7 @@
         app:layout_constraintStart_toEndOf="@id/ivImage">
 
         <TextView
-            android:id="@+id/callPersonName"
+            android:id="@+id/personName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/person_name"
