@@ -24,7 +24,7 @@ class ChatFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    lateinit var binding : FragmentCallBinding
+    lateinit var binding : FragmentChatBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +40,7 @@ class ChatFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentCallBinding.inflate(layoutInflater)
+        binding = FragmentChatBinding.inflate(layoutInflater)
         return binding.root
     }
 

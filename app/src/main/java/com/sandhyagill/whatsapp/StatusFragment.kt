@@ -4,10 +4,12 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sandhyagill.whatsapp.databinding.FragmentStatusBinding
+import java.util.zip.Inflater
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -46,21 +48,22 @@ class StatusFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var statuslist : MutableList<Status> = mutableListOf()
+        var statuslist: MutableList<Status> = mutableListOf()
         statuslist.add(Status("Komal"))
         statuslist.add(Status("Suman"))
         statuslist.add(Status("Tanu"))
         statuslist.add(Status("Drishti"))
         statuslist.add(Status("Lovi"))
         binding.recyclerView.adapter = RecyclerStatusAdapter(statuslist)
-        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+        binding.recyclerView.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
     }
-//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-//        val menuInflater = null
-//        menuInflater.inflate(R.menu.side_menu, menu)
-//        return true
-//    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.status_side_menu, menu)
+        return super.onCreateOptionsMenu(menu,inflater)
+    }
 
     companion object {
         /**
