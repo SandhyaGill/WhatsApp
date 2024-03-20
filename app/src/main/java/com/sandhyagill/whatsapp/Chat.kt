@@ -1,3 +1,3 @@
 package com.sandhyagill.whatsapp
 
-data class Chat(var personName : String, var chatMsg : String, var time: String)
+data class Chat(var userImage : Int, var personName : String, var chatMsg : String, var time: String)

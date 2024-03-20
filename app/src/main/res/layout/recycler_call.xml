@@ -10,6 +10,7 @@
         android:id="@+id/ivImage"
         android:layout_width="65dp"
         android:layout_height="65dp"
+        android:scaleType="fitXY"
         android:padding="5dp"
         android:src="@drawable/girl"
         app:layout_constraintStart_toStartOf="parent"

@@ -11,6 +11,7 @@
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:padding="5dp"
+        android:scaleType="fitXY"
         android:src="@drawable/girl"
         android:layout_margin="@dimen/margin_10dp"
         app:layout_constraintStart_toStartOf="parent"

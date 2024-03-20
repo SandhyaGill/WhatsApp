@@ -18,7 +18,7 @@
         app:shapeAppearanceOverlay="@style/Circle" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:id="@+id/llMain"
@@ -41,15 +41,13 @@
             android:id="@+id/chatMsg"
             android:layout_marginStart="5dp"
             android:textSize="15sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/time"
+            android:text="@string/time"
+            android:textSize="10sp"
+            android:padding="@dimen/margin_10dp"/>
     </LinearLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/time"
-        android:text="@string/time"
-        android:textSize="10sp"
-        android:padding="@dimen/margin_10dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

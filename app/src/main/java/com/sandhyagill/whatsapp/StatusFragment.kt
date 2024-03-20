@@ -7,6 +7,8 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sandhyagill.whatsapp.databinding.FragmentStatusBinding
 import java.util.zip.Inflater
@@ -21,6 +23,11 @@ private const val ARG_PARAM2 = "param2"
  * Use the [StatusFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
+var statuslist: MutableList<Status> = mutableListOf(Status(R.drawable.user1,"Komal"),Status(R.drawable.user2,"Suman"),
+    Status(R.drawable.user3,"Tanu"),Status(R.drawable.user4,"Drishti"),Status(R.drawable.user5,"Lovi"))
+var channellist : MutableList<Channels> = mutableListOf(Channels(R.drawable.user4,"Sandhya","Hello","2:00 AM"))
+var findChannellist : MutableList<FindChannel> = mutableListOf(FindChannel(R.drawable.finance,"Finance"),
+    FindChannel(R.drawable.news,"News"),FindChannel(R.drawable.game,"Total Gaming"))
 class StatusFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -48,16 +55,29 @@ class StatusFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var statuslist: MutableList<Status> = mutableListOf()
-        statuslist.add(Status("Komal"))
-        statuslist.add(Status("Suman"))
-        statuslist.add(Status("Tanu"))
-        statuslist.add(Status("Drishti"))
-        statuslist.add(Status("Lovi"))
-        binding.recyclerView.adapter = RecyclerStatusAdapter(statuslist)
-        binding.recyclerView.layoutManager =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
+        binding.rvStatus.adapter = RecyclerStatusAdapter(statuslist)
+        binding.rvStatus.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding?.ivPopUpMenu?.setOnClickListener {
+            var popupMenu = PopupMenu(requireContext(), binding.ivPopUpMenu)
+            popupMenu.menuInflater.inflate(R.menu.status_nav_menu, popupMenu.menu)
+            popupMenu.setOnMenuItemClickListener {
+                when(it.itemId){
+                    R.id.menuStatusPrivacy -> Toast.makeText(requireContext(), "Menu clicked", Toast.LENGTH_SHORT).show()
+                    else->{}
+                }
+                return@setOnMenuItemClickListener true
+            }
+            popupMenu.show()
+        }
+        binding.rvChannels.adapter = RecyclerChannelAdpater(channellist)
+        binding.rvChannels.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+
+        binding.rvFindChannels.adapter = RecyclerFindChannelAdapter(findChannellist)
+        binding.rvFindChannels.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

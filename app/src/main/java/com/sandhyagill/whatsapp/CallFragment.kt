@@ -17,7 +17,11 @@ private const val ARG_PARAM2 = "param2"
  * A simple [Fragment] subclass.
  * Use the [CallFragment.newInstance] factory method to
  * create an instance of this fragment.
- */
+ */ val callList : MutableList<Call> = mutableListOf(Call(R.drawable.user1,"Sandhya","10:04 AM"),
+    Call(R.drawable.user2,"Tanu","1:00 PM"),Call(R.drawable.user3,"Lovi","4:00 PM"),
+    Call(R.drawable.user4,"Harman","2:32 AM"),Call(R.drawable.user5,"Komal","3:28 AM"),
+    Call(R.drawable.user6,"Kajal","8:09 PM"),Call(R.drawable.user7,"Drishti","11:23 AM"))
+
 class CallFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -45,16 +49,7 @@ class CallFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val callList : MutableList<Call> = mutableListOf()
-        callList.add(Call("Sandhya","10:04 AM"))
-        callList.add(Call("Tanu","1:00 PM"))
-        callList.add(Call("Harman","2:32 AM"))
-        callList.add(Call("Lovi","4:00 PM"))
-        callList.add(Call("Komal","3:28 AM"))
-        callList.add(Call("Kajal","8:09 PM"))
-        callList.add(Call("Drishti","11:23 AM"))
-        callList.add(Call("Sorav","2:00 PM"))
-        callList.add(Call("Sumit","4:00 AM"))
+
         binding.recyclerView.adapter = RecyclerCallAdapter(callList)
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
 

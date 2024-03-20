@@ -1,6 +1,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/menuCamera"
+        android:title="@string/camera"
+        android:icon="@drawable/baseline_camera_alt_24"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/menuSearch"
+        android:title="@string/search"
+        android:icon="@drawable/baseline_search_24"
+        app:showAsAction="ifRoom"/>
+    <item
         android:id="@+id/menuNewGroup"
         android:title="@string/new_group"/>
     <item

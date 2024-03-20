@@ -15,12 +15,13 @@ import com.sandhyagill.whatsapp.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     var fragment = arrayListOf<Fragment>()
-    val title = listOf("Chat","Status","Call")
+    val title = listOf(R.drawable.community,"Chat","Status","Call")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        fragment.add(CommunityFragment())
         fragment.add(ChatFragment())
         fragment.add(StatusFragment())
         fragment.add(CallFragment())
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         binding.viewPager.adapter = TabAdapter(this, fragment)
 
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
-            tab.text = title[position]
+            tab.text = title[position].toString()
         }.attach()
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
